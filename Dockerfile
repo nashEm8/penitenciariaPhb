@@ -8,7 +8,7 @@ RUN apt update && apt install -y unzip wget && \
     mv glassfish7 /opt/glassfish
 
 # Copia o WAR para a pasta de deploy do GlassFish
-COPY target/AppPenitenciaria /opt/glassfish/glassfish/domains/domain1/autodeploy/
+COPY target/AppPenitenciaria.war /opt/glassfish/glassfish/domains/domain1/autodeploy/
 
 # Expõe as portas do GlassFish
 EXPOSE 8080 4848
