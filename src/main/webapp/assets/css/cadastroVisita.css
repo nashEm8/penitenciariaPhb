@@ -1,0 +1,85 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+}
+
+h1{
+    margin: 40px 0;
+    font-family: "Open Sans", serif;
+}
+
+.areaForm{
+    margin: 0 50px;
+    width: 100%;
+    background-color: #ADD8E6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 30px;
+    border-radius: 10px;
+    border: 2px solid #fff;
+}
+
+.areaForm div span{
+    font-family: "Open Sans", serif;
+}
+
+
+.custom-file-upload .ui-button{
+    width: 180px;
+    height: 40px;
+    background-color: transparent;
+    border-color: #000;
+    color: #000;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.custom-file-upload .ui-button:hover{
+    background-color: #ADD8E6;
+    color: #000;
+    border-color: #000;
+}
+
+
+.ui-button.ui-button-text-icon-left .ui-button-text{
+    display: none!important;
+}
+
+
+body .ui-button.ui-button-text-icon-left .ui-icon{
+    display: none!important;
+}
+
+
+.custom-file-upload .ui-button:before {
+    content: "Enviar​";  /* Texto personalizado */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+
+/* Para todos os placeholders */
+::placeholder {
+    color: #000 !important; /* Teste com vermelho para ver se aplica */
+    opacity: 1;
+}
+
+/* Suporte para diferentes navegadores */
+:-ms-input-placeholder { color: #000 !important; } /* IE 10+ */
+::-ms-input-placeholder { color: #000 !important; } /* Edge */
+::-webkit-input-placeholder { color: #000 !important; } /* Chrome, Safari */
+::-moz-placeholder { color: #000 !important; } /* Firefox */
+:-moz-placeholder { color: #000 !important; } /* Firefox antigo */

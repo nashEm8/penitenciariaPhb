@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Login - Sistema PJFI</title>
+        <link rel="stylesheet" href="assets/css/login.css"/>
+    </h:head>
+    <h:body>
+        <div class="form">         
+            <h:form>
+                <h1>Faça seu login:</h1>
+                <div class="ui-inputgroup" style="margin-top: -20px">
+                    <div class="ui-inputgroup-addon"><i class="pi pi-user"></i></div>
+                    <p:inputText id="j_username" placeholder="Usuário" value="#{loginBean.username}" required="true" autocomplete="none"/>
+                </div>
+
+                <div class="ui-inputgroup">
+                    <div class="ui-inputgroup-addon"><i class="pi pi-lock"></i></div>
+                    <p:password id="j_password" placeholder="Senha" value="#{loginBean.password}" required="true" autocomplete="none"/>
+                </div>
+
+                <p:commandButton value="Fazer login" actionListener="#{loginBean.login()}" style="width: 200px; margin-top: 10px; background-color: #FFD700; font-weight: bold; color: #000"/>
+            </h:form>
+            <div class="logo">
+                <h:graphicImage value="assets/imagens/logopoliciapenal2.png" width="300px" style="padding: 20px"/>
+            </div>
+        </div>
+
+
+
+
+    </h:body>
+</html>

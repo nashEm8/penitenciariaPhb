@@ -1,0 +1,22 @@
+.custom-file-upload .ui-button-text {
+    display: none;
+}
+
+.custom-file-upload .ui-button {
+    width: 200px;
+    height: 40px;
+    background-color: #4682B4;
+    border-color: #4682B4;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.custom-file-upload .ui-button:before {
+    content: "Enviar foto";  /* Texto personalizado */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

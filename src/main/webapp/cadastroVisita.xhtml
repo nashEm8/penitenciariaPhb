@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="jakarta.faces.facelets"
+      xmlns:f="jakarta.faces.core">
+    <h:head>
+        <meta charset="UTF-8"/>
+        <title>Penitenciaria Juiz Fontes Ibiapina</title>
+        <link rel="stylesheet" href="assets/css/cadastroVisita.css"/>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&amp;display=swap" rel="stylesheet" />
+
+    </h:head>
+    <h:body>
+        <div style="display: flex; justify-content: center;  align-items: center; margin: 40px 0;">
+            <div class="areaForm" style="margin: 20px 0">
+                <h:graphicImage value="assets/imagens/logopoliciapenal2.png" height="150px"/>
+                <h1>#{visitaBean.tituloPage}</h1>
+                <h:form enctype="multipart/form-data" id="formCadastro" style="width: 600px;">
+                    <p:growl id="msgs" showDetail="true" life="3000"/>
+                    <div>
+                        <span style="font-weight: bold;">Nome completo:</span>
+                        <div class="ui-inputgroup">
+                            <p:inputText placeholder="Digite o seu nome completo" value="#{visitaBean.visita.nome}" style="width: 100%; margin: 10px 0; background-color: transparent; border: 1px solid #000; outline: none;" autocomplete="off" required="true"/>
+                        </div>
+                        <span style="font-weight: bold;">Nome completo do interno:</span>
+                        <div class="ui-inputgroup">
+                            <p:inputText placeholder="Digite o nome completo do interno que quer visitar" value="#{visitaBean.visita.nomeInterno}" style="width: 100%; margin: 10px 0; background-color: transparent; border: 1px solid #000; outline: none;" autocomplete="off" required="true"/>
+                        </div>
+                        <span style="font-weight: bold;">Parentesco:</span>
+                        <div class="ui-inputgroup">
+                            <p:inputText placeholder="Digite o seu parentesco com o interno" value="#{visitaBean.visita.parentesco}" style="width: 100%; margin: 10px 0; background-color: transparent; border: 1px solid #000; outline: none;" autocomplete="off" required="true"/>
+                        </div>
+                        <span style="font-weight: bold;">Telefone:</span>
+                        <div class="ui-inputgroup">
+                            <p:inputMask placeholder="Digite o seu número (de preferência com WhatsApp)" mask="(99) 99999-9999" value="#{visitaBean.visita.telefone}" style="width: 100%; margin-top: 10px; background-color: transparent; border: 1px solid #000; outline: none;" autocomplete="off" required="true"/>
+                        </div>
+                    </div>    
+                    <div style="margin-top: 40px">
+                        <span style="font-family: Open Sans;">Adicione aqui <strong>a foto 3x4:</strong></span><br/>
+                        <p:fileUpload id="foto3x4" mode="simple" skinSimple="true"
+                                      listener="#{visitaBean.handleFileUpload2}"
+                                      allowTypes="/(\.|\/)(jpg|jpeg|png)$/i"
+                                      auto="true"
+                                      styleClass="custom-file-upload" style="margin-top: 15px;" />
+
+                    </div>
+                    <div style="margin-top: 40px">
+                        <span style="font-family: Open Sans;">Envie os seguintes documentos: <strong>#{visitaBean.textoDocumentos}</strong></span><br/>
+                        <p:fileUpload id="foto" mode="simple" skinSimple="true"
+                                      listener="#{visitaBean.handleFileUpload}"
+                                      allowTypes="/(\.|\/)(jpg|jpeg|png|pdf)$/i"
+                                      multiple="true"
+                                      auto="true"
+                                      styleClass="custom-file-upload" style="margin-top: 15px;" />
+
+
+
+
+                    </div>
+
+                    <div style="display: flex; justify-content: center">
+                        <p:commandButton value="Fazer cadastro​" action="#{visitaBean.salvar}" oncomplete="window.location.reload();" style="margin-top: 70px; background-color: #87CEEB; color: #000; border-color: #000; font-weight: bold; padding: 0 40px"/>
+                    </div>
+                </h:form>
+            </div>
+        </div>
+
+    </h:body>
+</html>

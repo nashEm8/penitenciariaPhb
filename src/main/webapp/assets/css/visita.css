@@ -1,0 +1,38 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #000;
+}
+
+h1, a{
+    font-family: "Open Sans", serif;
+}
+
+h1{
+    color: #fff;
+    text-align: center;
+}
+
+a{
+    display: block;
+    width: 400px;
+    text-align: center;
+    padding: 20px 0;
+    border-radius: 10px;
+    background-color: #98FB98;
+    color: #000;
+    border: 2px solid #000;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+a:hover{
+    transform: scale(1.1);
+    background-color: #00FA9A;
+}

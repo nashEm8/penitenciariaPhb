@@ -1,0 +1,124 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                    xmlns:h="http://xmlns.jcp.org/jsf/html"
+                    xmlns:ui="http://java.sun.com/jsf/facelets">
+
+        <style>
+            /* Estilizando o painel do menu */
+            .custom-panel-menu .ui-panelmenu {
+                background-color: #34495e;
+                border-radius: 8px;
+            }
+
+            h3 > a{
+                margin-left: 10px!important;
+            }
+
+            h3 > span{
+                margin-left: 5px!important;
+            }
+
+            /* Estilizando o cabeçalho do menu */
+            .custom-panel-menu .ui-panelmenu-header {
+                background-color: transparent !important;
+                border: none!important;
+                color: white !important;
+                padding: 10px 20px;
+                font-size: 20px!important;
+                font-weight: normal!important;
+                border-radius: 8px;
+            }
+
+            /* Cor quando o item do menu estiver ativo */
+            .custom-panel-menu .ui-panelmenu-header:hover {
+                background-color: #4B545C!important;
+                border-radius: 5px;
+            }
+
+            /* Estilizando os itens do submenu */
+            body .ui-panelmenu .ui-panelmenu-content {
+                background-color: transparent!important;
+                border: 0;
+                padding: 10px;
+                font-weight: bold;
+                border-radius: 5px;
+            }
+            
+            body .ui-panelmenu .ui-panelmenu-content span,
+            .pi-hourglass{
+                color: #fff!important;
+            }
+            
+            body .ui-panelmenu .ui-panelmenu-content .ui-menuitem-link.ui-state-hover{
+                border-radius: 5px;
+                background-color: #4B545C!important;
+            }
+
+            /* Mudando a cor do item do submenu ao passar o mouse */
+            .custom-panel-menu .ui-menuitem:hover {
+                background-color: #4B545C!important;
+                color:#000!important;
+                border-radius: 5px;
+            }
+            
+            body .ui-panelmenu .ui-panelmenu-content .ui-menuitem-link a:hover{
+                background-color: #00ff00!important;
+            }
+
+            /* Ajustando os ícones */
+            .custom-panel-menu .ui-menuitem-icon {
+                margin-right: 10px;
+                color: #2980b9;
+            }
+        </style>
+
+        <div class="d-flex flex-column justify-content-between align-items-center" style="background-color: #343A40; height: 100%; position: fixed; width: 300px; padding: 40px 0px; border-right: 2px solid #000">
+            <h:graphicImage value="/assets/imagens/logo3.png" height="130px" width="90%" class="px-4"/>
+            <nav>
+                <h:form>
+                    <ul style="list-style: none; margin-top: -80px">
+                        <li>                   
+                            <a href="../../penitenciaria/index.xhtml">
+                                <i class='pi pi-home' style="font-size: 1.2rem; margin-right: 10px;"></i>
+                                Início
+                            </a>
+                        </li>
+                        <li>                   
+                            <a href="../../penitenciaria/cadastroInterno.xhtml">
+                                <i class='pi pi-user-plus' style="font-size: 1.2rem; margin-right: 10px;"></i>
+                                Cadastro de internos
+                            </a>
+                        </li>
+                        <li>                      
+                            <a href="../../penitenciaria/pesquisaInternos.xhtml">
+                                <i class="pi pi-search" style="font-size: 1.2rem; margin-right: 10px;"/>
+                                Pesquisar interno
+                            </a>
+                        </li>
+                        <p:panelMenu styleClass="custom-panel-menu">
+                            <p:submenu label="Analisar Visita">
+                                <p:menuitem value="Visitas Pendentes" icon="pi pi-thumbs-down" url="../../penitenciaria/exibirVisitas.xhtml?visita=pendente"/>
+                                <p:menuitem value="Visitas Aprovadas" icon="pi pi-thumbs-up" url="../../penitenciaria/exibirVisitas.xhtml?visita=aprovada"/>
+                            </p:submenu>
+                        </p:panelMenu>
+                        <li>
+                            <p:commandLink action="#{loginBean.logout}" ajax="false" style="font-size: 20px; text-decoration: none; padding: 10px 20px; color: #fff;">
+                                <i class="pi pi-power-off" style="font-size: 1.2rem; margin-right: 10px;"/>
+                                Sair do sistema
+                            </p:commandLink>
+                        </li>
+                    </ul>
+                </h:form>
+            </nav>
+            <div class="text-center px-4" style="color: #DBDDDE">
+                Desenvolvido 💻​️​ por <br/><a href="#" style="color: #FF6347; text-decoration: none; font-weight: bold">Emanuel Azevedo</a>
+            </div>
+        </div>
+
+    </ui:composition>
+</html>

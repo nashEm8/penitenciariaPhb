@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="jakarta.faces.facelets"
+      xmlns:f="jakarta.faces.core">
+    <h:head>
+        <meta charset="utf-8"/>
+        <title>Penitenciaria Juiz Fontes Ibiapina</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous"/>
+        <link rel="stylesheet" href="assets/css/principal.css"/>
+        <link rel="stylesheet" href="assets/css/menu.css"/>
+        <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0"></script>
+
+    </h:head>
+    <h:body>
+
+        <div class="d-flex">
+            <div class="menu">
+                <ui:include src="/assets/components/menu.xhtml"/>
+            </div> 
+
+            <main>
+                <div class="d-flex flex-column">
+                    <div style="margin-top: 40px">
+                        <h1>#{visitaBean.carregarParametroVisita eq 'aprovada' ? 'Dados de cadastros de visitas aprovadas:' : 'Dados de cadastro de visitas pendentes'}</h1>
+                        <p>Essa tabela se refere aos dados de cadastros que a documentação está <strong>#{visitaBean.carregarParametroVisita eq 'aprovada' ? 'aprovada' : 'pendente'}</strong></p>
+                        <hr/>
+                        <h:form style="margin-top: 40px">
+                            <p:growl id="msgs" showDetail="true"/>
+                            <p:dataTable id="tabelaVisitas" value="#{visitaBean.carregarParametroVisita eq 'aprovada' ? visitaBean.visitasAprovadas : visitaBean.visitasPendentes}" var="visita" paginator="true" paginatorPosition="bottom" rows="5">
+                                <p:column headerText="Nome">
+                                    <h:outputText value="#{visita.nome}"/>
+                                </p:column>
+                                <p:column headerText="Nome do interno">
+                                    <h:outputText value="#{visita.nomeInterno}"/>
+                                </p:column>
+                                <p:column headerText="Parentesco">
+                                    <h:outputText value="#{visita.parentesco}"/>
+                                </p:column>
+                                <p:column headerText="Telefone">
+                                    <h:outputText value="#{visita.telefone}"/>
+                                </p:column>
+                                <p:column headerText="Tipo de visita">
+                                    <h:outputText value="#{visita.tipoVisita}"/>
+                                </p:column>
+                                <p:column headerText="Status documentação">
+                                    <h:outputText value="#{visita.statusVisitas}" style="#{visita.statusVisitas eq 'APROVADA' ? 'background-color: #32CD32;' : 'background-color: #ff0000;'}; color:#fff; padding: 10px; font-weight: bold;"/>
+                                </p:column>
+                                <p:column headerText="Carteirinha">
+                                    <h:outputText value="#{visita.entregacarteirinha}" style="#{visita.entregacarteirinha eq 'CONCLUIDO' ? 'background-color: #32CD32;' : 'background-color: #ff0000;'}; color:#fff; padding: 10px; font-weight: bold;"/>
+                                </p:column>
+                                <p:column headerText="Ações">
+                                    <p:button icon="pi pi-pencil" href="editarVisita.xhtml?editar=#{visita.id}" style="margin-right: 10px; background-color: #3CB371; border-color: #3CB371" title="Editar"/>
+                                    <p:button icon="pi pi-eye" href="dadosVisitante.xhtml?visualizar=#{visita.id}" style="margin-right: 10px; background-color: #4682B4; border-color: #4682B4" title="Visualizar"/>
+                                </p:column>
+                            </p:dataTable>
+                        </h:form>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </h:body>
+</html>
+

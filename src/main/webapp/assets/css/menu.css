@@ -1,0 +1,33 @@
+
+
+ul{
+    margin: 0;
+    padding: 0;
+}
+
+ul li{
+    display: block;
+    margin: 25px 0;
+}
+
+nav ul li a{
+    font-size: 20px;
+    text-decoration: none;
+    padding: 10px 20px;
+    color: #fff;
+}
+
+nav ul li a:hover{
+    color: #fff;
+    background-color: #4B545C;
+    border-radius: 5px;
+}
+
+.card{
+    background-color: #fff;
+}
+
+.card p{
+    font-size: 50px;
+    text-align: center;
+}

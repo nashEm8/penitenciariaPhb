@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="jakarta.faces.facelets"
+      xmlns:f="jakarta.faces.core">
+    <h:head>
+        <title>Penitenciaria Juiz Fontes Ibiapina</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous"/>
+        <link rel="stylesheet" href="assets/css/principal.css"/>
+        <link rel="stylesheet" href="assets/css/menu.css"/>
+        <link rel="stylesheet" href="assets/css/pesquisaInterno.css"/>
+        <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0"></script>
+
+    </h:head>
+    <h:body>
+
+        <div class="d-flex">
+            <div class="menu">
+                <ui:include src="/assets/components/menu.xhtml"/>
+            </div>
+            <main>
+                <div style="margin: 40px 0">
+                    <h1>Pesquisa por internos</h1>
+                    <p>Preencha um dos campos abaixo, "nome" ou "nome da mãe" e depois clique em <b>pesquisar</b> para localizar o interno</p>
+
+                    <h:form>
+                        <p:growl id="msgs" showDetail="true" />
+
+                        <p:panel header="Buscar Internos" style="margin-top: 20px" class="gap-3">
+                            <div class="d-flex align-items-end gap-5" style="margin-bottom: 20px;">
+                                <div class="ui-inputgroup d-flex flex-column" style="margin-top: 10px;">
+                                    <span style="margin-bottom: 10px">Nome</span>
+                                    <div class="d-flex">
+                                        <div class="ui-inputgroup-addon"><i class="pi pi-user"></i></div>
+                                        <p:inputText placeholder="Digite o nome" value="#{internoBean.nome}" style="width: 400px; outline: none; box-shadow: none;" autocomplete="off"/>
+                                    </div>
+                                </div>
+
+                                <div class="ui-inputgroup d-flex flex-column" style="margin-top: 10px">
+                                    <span style="margin-bottom: 10px">Nome da mãe</span>
+                                    <div class="d-flex">
+                                        <div class="ui-inputgroup-addon"><i class="pi pi-user"></i></div>
+                                        <p:inputText placeholder="Digite o nome da mãe" value="#{internoBean.nomeMae}" style="width: 400px; outline: none; box-shadow: none;" autocomplete="off"/>
+                                    </div>
+                                </div>
+
+                                <p:commandButton value="Pesquisar" actionListener="#{internoBean.buscarInternos()}" update="@form" style=" width: 200px; height: 44px; font-weight: bold"/>
+                            </div>
+                        </p:panel>
+
+                        <p:dataTable id="tabelaInternos" value="#{internoBean.internos}" var="interno" paginator="true" paginatorPosition="bottom" rows="3" style="margin-top: 40px">
+                            <p:column headerText="Foto">
+                                <h:graphicImage value="#{interno.imagemBase64}" width="120px" style="border: 2px solid #000"/>
+                            </p:column>
+                            <p:column headerText="Nome">
+                                <h:outputText value="#{interno.nome}" />
+                            </p:column>
+                            <p:column headerText="Sexo:">
+                                <h:outputText value="#{interno.sexo}" />
+                            </p:column>
+                            <p:column headerText="Nome da Mãe">
+                                <h:outputText value="#{interno.nomeMae}" />
+                            </p:column>
+                            <p:column headerText="Data de entrada">
+                                <h:outputText value="#{interno.dataEntrada}">
+                                    <f:convertDateTime pattern="dd/MM/yyyy" locale="pt_BR" />
+                                </h:outputText>
+                            </p:column>
+                            <p:column headerText="Pavilhão">
+                                <h:outputText value="#{interno.pavilhao}" />
+                            </p:column>
+                            <p:column headerText="Número da cela">
+                                <h:outputText value="#{interno.numeroCela}" />
+                            </p:column>
+
+                            <p:column headerText="Ações">
+                                <p:button icon="pi pi-pencil" href="cadastroInterno.xhtml?editar=#{interno.id}" style="margin-right: 10px; background-color: #3CB371; border-color: #3CB371" title="Editar"/>
+                                <p:button icon="pi pi-eye" href="dadoInterno.xhtml?visualizar=#{interno.id}" style="margin-right: 10px; background-color: #4682B4; border-color: #4682B4" title="Visualizar"/>
+                            </p:column>
+                        </p:dataTable>
+                    </h:form>
+
+                    <!-- Confirmação de Exclusão -->
+
+                </div>
+
+            </main>
+        </div>
+    </h:body>
+</html>

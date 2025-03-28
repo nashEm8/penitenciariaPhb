@@ -1,0 +1,61 @@
+body{
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+}
+
+.form{
+    width: 1000px;
+    height: 500px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    background-color: #FFD700;
+    border-radius: 0 20px 20px 0;
+}
+
+form{
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+    background-color: #4682B4;
+    padding: 40px;
+    gap: 20px;
+    border-radius: 20px 0 0 20px;
+}
+
+form h1{
+    font-family: sans-serif;
+    color: #fff;
+}
+
+input{
+    width: 90%;
+    background-color: transparent!important;
+    color: #fff!important;
+}
+
+/* Para todos os placeholders */
+::placeholder {
+    color: #fff !important; /* Teste com vermelho para ver se aplica */
+    opacity: 1;
+}
+
+/* Suporte para diferentes navegadores */
+:-ms-input-placeholder { color: #fff !important; } /* IE 10+ */
+::-ms-input-placeholder { color: #fff !important; } /* Edge */
+::-webkit-input-placeholder { color: #fff !important; } /* Chrome, Safari */
+::-moz-placeholder { color: #fff !important; } /* Firefox */
+:-moz-placeholder { color: #fff !important; } /* Firefox antigo */
+
+
